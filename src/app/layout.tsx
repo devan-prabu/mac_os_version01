@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -43,6 +44,7 @@ export default function RootLayout({
         className={`${dmSans.variable} ${jetbrainsMono.variable} font-sans text-dark antialiased`}
       >
         {children}
+        <Analytics />
         {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
           <Script
             defer
